@@ -843,15 +843,6 @@ margin-bottom: 20px;
     }
   }
 };
-        defs["inline_response_404_1"] = {
-  "type" : "object",
-  "properties" : {
-    "error" : {
-      "type" : "string",
-      "example" : "Wrong Username or Password"
-    }
-  }
-};
         defs["Tag"] = {
   "type" : "object",
   "properties" : {
@@ -949,7 +940,7 @@ margin-bottom: 20px;
                         <p class="marked">Delete an article by it&#39;s id</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="delete"><code><span class="pln">/user/article/{id}</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/deleteArticle/{id}</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -969,7 +960,7 @@ margin-bottom: 20px;
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Article-deleteArticleById-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X DELETE "https://blog.swagger.io/simpleblog/user/article/{id}"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/deleteArticle/{id}"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Article-deleteArticleById-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -1174,7 +1165,7 @@ except ApiException as e:
 
 
                           <h2>Responses</h2>
-                            <h3> Status: 400 - Invalid ID supplied </h3>
+                            <h3> Status: 200 - Article is deleted </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -2686,7 +2677,7 @@ except ApiException as e:
                         <p class="marked">Check user with username and password</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="post"><code><span class="pln">/user/signin</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/signin</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2706,7 +2697,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-signIn-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X POST "https://blog.swagger.io/simpleblog/user/signin"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/signin"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-signIn-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2992,7 +2983,7 @@ $(document).ready(function() {
                                         var schemaWrapper = {
   "description" : "Not Found",
   "schema" : {
-    "$ref" : "#/definitions/inline_response_404_1"
+    "$ref" : "#/definitions/inline_response_404"
   }
 };
                                         var schema = schemaWrapper.schema;
