@@ -2697,7 +2697,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-signIn-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/signin"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/signin?username=&password="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-signIn-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2713,9 +2713,10 @@ public class UserApiExample {
     public static void main(String[] args) {
         
         UserApi apiInstance = new UserApi();
-        User body = ; // User | 
+        String username = username_example; // String | username
+        String password = password_example; // String | user password
         try {
-            inline_response_200 result = apiInstance.signIn(body);
+            inline_response_200 result = apiInstance.signIn(username, password);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserApi#signIn");
@@ -2732,9 +2733,10 @@ public class UserApiExample {
 
     public static void main(String[] args) {
         UserApi apiInstance = new UserApi();
-        User body = ; // User | 
+        String username = username_example; // String | username
+        String password = password_example; // String | user password
         try {
-            inline_response_200 result = apiInstance.signIn(body);
+            inline_response_200 result = apiInstance.signIn(username, password);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserApi#signIn");
@@ -2748,12 +2750,14 @@ public class UserApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-User-signIn-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">User *body = ; // 
+                              <pre class="prettyprint"><code class="language-cpp">String *username = username_example; // username
+String *password = password_example; // user password
 
 UserApi *apiInstance = [[UserApi alloc] init];
 
 // sign in
-[apiInstance signInWith:body
+[apiInstance signInWith:username
+    password:password
               completionHandler: ^(inline_response_200 output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -2770,7 +2774,9 @@ UserApi *apiInstance = [[UserApi alloc] init];
 
 var api = new SimpleBlog.UserApi()
 
-var body = ; // {User} 
+var username = username_example; // {String} username
+
+var password = password_example; // {String} user password
 
 
 var callback = function(error, data, response) {
@@ -2780,7 +2786,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.signIn(body, callback);
+api.signIn(username, password, callback);
 </code></pre>
                             </div>
 
@@ -2802,12 +2808,13 @@ namespace Example
         {
             
             var apiInstance = new UserApi();
-            var body = new User(); // User | 
+            var username = username_example;  // String | username
+            var password = password_example;  // String | user password
 
             try
             {
                 // sign in
-                inline_response_200 result = apiInstance.signIn(body);
+                inline_response_200 result = apiInstance.signIn(username, password);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2825,10 +2832,11 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\UserApi();
-$body = ; // User | 
+$username = username_example; // String | username
+$password = password_example; // String | user password
 
 try {
-    $result = $api_instance->signIn($body);
+    $result = $api_instance->signIn($username, $password);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->signIn: ', $e->getMessage(), PHP_EOL;
@@ -2842,10 +2850,11 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::UserApi;
 
 my $api_instance = WWW::SwaggerClient::UserApi->new();
-my $body = WWW::SwaggerClient::Object::User->new(); # User | 
+my $username = username_example; # String | username
+my $password = password_example; # String | user password
 
 eval { 
-    my $result = $api_instance->signIn(body => $body);
+    my $result = $api_instance->signIn(username => $username, password => $password);
     print Dumper($result);
 };
 if ($@) {
@@ -2862,11 +2871,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.UserApi()
-body =  # User | 
+username = username_example # String | username
+password = password_example # String | user password
 
 try: 
     # sign in
-    api_response = api_instance.sign_in(body)
+    api_response = api_instance.sign_in(username, password)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->signIn: %s\n" % e)</code></pre>
@@ -2877,50 +2887,61 @@ except ApiException as e:
 
 
 
-                            <div class="methodsubtabletitle">Body parameters</div>
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
                             <table id="methodsubtable">
                               <tr>
                                 <th width="150px">Name</th>
                                 <th>Description</th>
                               </tr>
-                                <tr><td style="width:150px;">body <span style="color:red;">*</span></td>
+                                <tr><td style="width:150px;">username*</td>
 <td>
 
 
-<script>
-$(document).ready(function() {
-  var schemaWrapper = {
-  "in" : "body",
-  "name" : "body",
-  "required" : true,
-  "schema" : {
-    "$ref" : "#/definitions/User"
-  },
-  "x-exportParamName" : "Body"
-};
-  var schema = schemaWrapper.schema;
-  if (schema.$ref != null) {
-    schema = defsParser.$refs.get(schema.$ref);
-  } else {
-    schemaWrapper.definitions = Object.assign({}, defs);
-    $RefParser.dereference(schemaWrapper).catch(function(err) {
-      console.log(err);
-    });
-  }
+    <div id="d2e199_signIn_username">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
 
-  var view = new JSONSchemaView(schema,2,{isBodyParam: true});
-  var result = $('#d2e199_signIn_body');
-  result.empty();
-  result.append(view.render());
-});
-</script>
-<div id="d2e199_signIn_body"></div>
+                    <div class="inner description">
+                        username
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">password*</td>
+<td>
+
+
+    <div id="d2e199_signIn_password">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        user password
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
 </td>
 </tr>
 
                             </table>
-
-
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - Successful Operation </h3>
