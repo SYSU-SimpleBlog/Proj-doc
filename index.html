@@ -748,6 +748,9 @@ margin-bottom: 20px;
 };
         defs["ArticlesResponse"] = {
   "properties" : {
+    "PageCount" : {
+      "type" : "integer"
+    },
     "Articles" : {
       "type" : "array",
       "items" : {
@@ -1577,7 +1580,7 @@ except ApiException as e:
                         <p class="marked">Get the title of the request page of articles</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/articles</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/articles?page&#x3D;#</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -1597,7 +1600,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Article-getArticles-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/articles?page="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/articles?page&#x3D;#?page="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Article-getArticles-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2299,7 +2302,7 @@ $(document).ready(function() {
                         <p class="marked">Get all comments of an article</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/article/{id}/comments</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/article/{id}/comments?page&#x3D;#</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2319,7 +2322,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Comment-getCommentsOfArticle-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments?page&#x3D;#"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Comment-getCommentsOfArticle-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
