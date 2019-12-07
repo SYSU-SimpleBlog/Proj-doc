@@ -124,6 +124,7 @@ paths:
           description: "Not Found"
           schema:
             $ref: "#/definitions/inline_response_404"
+  /user/article/{id}/comment:
     post:
       tags:
       - "comment"
@@ -160,19 +161,6 @@ paths:
       operationId: "SignIn"
       produces:
       - "application/json"
-      parameters:
-      - name: "username"
-        in: "query"
-        description: "username"
-        required: true
-        type: "string"
-        x-exportParamName: "username"
-      - name: "password"
-        in: "query"
-        description: "user password"
-        required: true
-        type: "string"
-        x-exportParamName: "password"
       responses:
         "200":
           description: "Successful Operation"
@@ -266,7 +254,9 @@ definitions:
       content: "content"
   Comments:
     properties:
-      contents:
+      PageCount:
+        type: "integer"
+      Contents:
         type: "array"
         items:
           $ref: "#/definitions/Comment"
