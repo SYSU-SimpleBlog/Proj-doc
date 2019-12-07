@@ -2319,7 +2319,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Comment-getCommentsOfArticle-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments?page="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Comment-getCommentsOfArticle-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2336,8 +2336,9 @@ public class CommentApiExample {
         
         CommentApi apiInstance = new CommentApi();
         Integer id = 56; // Integer | The only id of the article to return
+        String page = page_example; // String | the request page
         try {
-            Comments result = apiInstance.getCommentsOfArticle(id);
+            Comments result = apiInstance.getCommentsOfArticle(id, page);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentApi#getCommentsOfArticle");
@@ -2355,8 +2356,9 @@ public class CommentApiExample {
     public static void main(String[] args) {
         CommentApi apiInstance = new CommentApi();
         Integer id = 56; // Integer | The only id of the article to return
+        String page = page_example; // String | the request page
         try {
-            Comments result = apiInstance.getCommentsOfArticle(id);
+            Comments result = apiInstance.getCommentsOfArticle(id, page);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling CommentApi#getCommentsOfArticle");
@@ -2371,11 +2373,13 @@ public class CommentApiExample {
   </div> -->
                             <div class="tab-pane" id="examples-Comment-getCommentsOfArticle-0-objc">
                               <pre class="prettyprint"><code class="language-cpp">Integer *id = 56; // The only id of the article to return
+String *page = page_example; // the request page
 
 CommentApi *apiInstance = [[CommentApi alloc] init];
 
 // Get all comments of an article
 [apiInstance getCommentsOfArticleWith:id
+    page:page
               completionHandler: ^(Comments output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
@@ -2394,6 +2398,8 @@ var api = new SimpleBlog.CommentApi()
 
 var id = 56; // {Integer} The only id of the article to return
 
+var page = page_example; // {String} the request page
+
 
 var callback = function(error, data, response) {
   if (error) {
@@ -2402,7 +2408,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.getCommentsOfArticle(id, callback);
+api.getCommentsOfArticle(id, page, callback);
 </code></pre>
                             </div>
 
@@ -2425,11 +2431,12 @@ namespace Example
             
             var apiInstance = new CommentApi();
             var id = 56;  // Integer | The only id of the article to return
+            var page = page_example;  // String | the request page
 
             try
             {
                 // Get all comments of an article
-                Comments result = apiInstance.getCommentsOfArticle(id);
+                Comments result = apiInstance.getCommentsOfArticle(id, page);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2448,9 +2455,10 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\CommentApi();
 $id = 56; // Integer | The only id of the article to return
+$page = page_example; // String | the request page
 
 try {
-    $result = $api_instance->getCommentsOfArticle($id);
+    $result = $api_instance->getCommentsOfArticle($id, $page);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling CommentApi->getCommentsOfArticle: ', $e->getMessage(), PHP_EOL;
@@ -2465,9 +2473,10 @@ use WWW::SwaggerClient::CommentApi;
 
 my $api_instance = WWW::SwaggerClient::CommentApi->new();
 my $id = 56; # Integer | The only id of the article to return
+my $page = page_example; # String | the request page
 
 eval { 
-    my $result = $api_instance->getCommentsOfArticle(id => $id);
+    my $result = $api_instance->getCommentsOfArticle(id => $id, page => $page);
     print Dumper($result);
 };
 if ($@) {
@@ -2485,10 +2494,11 @@ from pprint import pprint
 # create an instance of the API class
 api_instance = swagger_client.CommentApi()
 id = 56 # Integer | The only id of the article to return
+page = page_example # String | the request page
 
 try: 
     # Get all comments of an article
-    api_response = api_instance.get_comments_of_article(id)
+    api_response = api_instance.get_comments_of_article(id, page)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling CommentApi->getCommentsOfArticle: %s\n" % e)</code></pre>
@@ -2531,6 +2541,36 @@ except ApiException as e:
 
 
 
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">page*</td>
+<td>
+
+
+    <div id="d2e199_getCommentsOfArticle_page">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        the request page
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - Successful Operation </h3>

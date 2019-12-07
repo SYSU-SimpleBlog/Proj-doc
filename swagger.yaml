@@ -111,6 +111,12 @@ paths:
         required: true
         type: "integer"
         x-exportParamName: "Id"
+      - name: "page"
+        in: "query"
+        description: "the request page"
+        required: true
+        type: "string"
+        x-exportParamName: "Page"
       responses:
         "200":
           description: "Successful Operation"
