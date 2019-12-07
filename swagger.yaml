@@ -161,6 +161,19 @@ paths:
       operationId: "SignIn"
       produces:
       - "application/json"
+      parameters:
+      - name: "username"
+        in: "query"
+        description: "username"
+        required: true
+        type: "string"
+        x-exportParamName: "username"
+      - name: "password"
+        in: "query"
+        description: "user password"
+        required: true
+        type: "string"
+        x-exportParamName: "password"
       responses:
         "200":
           description: "Successful Operation"

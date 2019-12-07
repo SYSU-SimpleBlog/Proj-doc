@@ -748,9 +748,6 @@ margin-bottom: 20px;
 };
         defs["ArticlesResponse"] = {
   "properties" : {
-    "PageCount" : {
-      "type" : "integer"
-    },
     "Articles" : {
       "type" : "array",
       "items" : {
@@ -1580,7 +1577,7 @@ except ApiException as e:
                         <p class="marked">Get the title of the request page of articles</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/articles?page&#x3D;#</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/articles</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -1600,7 +1597,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Article-getArticles-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/articles?page&#x3D;#?page="</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/articles?page="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Article-getArticles-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2302,7 +2299,7 @@ $(document).ready(function() {
                         <p class="marked">Get all comments of an article</p>
                         <p></p>
                         <br />
-                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/article/{id}/comments?page&#x3D;#</span></code></pre>
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/user/article/{id}/comments</span></code></pre>
                         <p>
                           <h3>Usage and SDK Samples</h3>
                         </p>
@@ -2322,7 +2319,7 @@ $(document).ready(function() {
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-Comment-getCommentsOfArticle-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments?page&#x3D;#"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/article/{id}/comments"</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-Comment-getCommentsOfArticle-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2703,7 +2700,7 @@ except ApiException as e:
 
                         <div class="tab-content">
                           <div class="tab-pane active" id="examples-User-signIn-0-curl">
-                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/signin"</code></pre>
+                            <pre class="prettyprint"><code class="language-bsh">curl -X GET "https://blog.swagger.io/simpleblog/user/signin?username=&password="</code></pre>
                           </div>
                           <div class="tab-pane" id="examples-User-signIn-0-java">
                             <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
@@ -2719,8 +2716,10 @@ public class UserApiExample {
     public static void main(String[] args) {
         
         UserApi apiInstance = new UserApi();
+        String username = username_example; // String | username
+        String password = password_example; // String | user password
         try {
-            inline_response_200 result = apiInstance.signIn();
+            inline_response_200 result = apiInstance.signIn(username, password);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserApi#signIn");
@@ -2737,8 +2736,10 @@ public class UserApiExample {
 
     public static void main(String[] args) {
         UserApi apiInstance = new UserApi();
+        String username = username_example; // String | username
+        String password = password_example; // String | user password
         try {
-            inline_response_200 result = apiInstance.signIn();
+            inline_response_200 result = apiInstance.signIn(username, password);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling UserApi#signIn");
@@ -2752,12 +2753,15 @@ public class UserApiExample {
   <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
   </div> -->
                             <div class="tab-pane" id="examples-User-signIn-0-objc">
-                              <pre class="prettyprint"><code class="language-cpp">
+                              <pre class="prettyprint"><code class="language-cpp">String *username = username_example; // username
+String *password = password_example; // user password
+
 UserApi *apiInstance = [[UserApi alloc] init];
 
 // sign in
-[apiInstance signInWithCompletionHandler: 
-              ^(inline_response_200 output, NSError* error) {
+[apiInstance signInWith:username
+    password:password
+              completionHandler: ^(inline_response_200 output, NSError* error) {
                             if (output) {
                                 NSLog(@"%@", output);
                             }
@@ -2773,6 +2777,11 @@ UserApi *apiInstance = [[UserApi alloc] init];
 
 var api = new SimpleBlog.UserApi()
 
+var username = username_example; // {String} username
+
+var password = password_example; // {String} user password
+
+
 var callback = function(error, data, response) {
   if (error) {
     console.error(error);
@@ -2780,7 +2789,7 @@ var callback = function(error, data, response) {
     console.log('API called successfully. Returned data: ' + data);
   }
 };
-api.signIn(callback);
+api.signIn(username, password, callback);
 </code></pre>
                             </div>
 
@@ -2802,11 +2811,13 @@ namespace Example
         {
             
             var apiInstance = new UserApi();
+            var username = username_example;  // String | username
+            var password = password_example;  // String | user password
 
             try
             {
                 // sign in
-                inline_response_200 result = apiInstance.signIn();
+                inline_response_200 result = apiInstance.signIn(username, password);
                 Debug.WriteLine(result);
             }
             catch (Exception e)
@@ -2824,9 +2835,11 @@ namespace Example
 require_once(__DIR__ . '/vendor/autoload.php');
 
 $api_instance = new Swagger\Client\Api\UserApi();
+$username = username_example; // String | username
+$password = password_example; // String | user password
 
 try {
-    $result = $api_instance->signIn();
+    $result = $api_instance->signIn($username, $password);
     print_r($result);
 } catch (Exception $e) {
     echo 'Exception when calling UserApi->signIn: ', $e->getMessage(), PHP_EOL;
@@ -2840,9 +2853,11 @@ use WWW::SwaggerClient::Configuration;
 use WWW::SwaggerClient::UserApi;
 
 my $api_instance = WWW::SwaggerClient::UserApi->new();
+my $username = username_example; # String | username
+my $password = password_example; # String | user password
 
 eval { 
-    my $result = $api_instance->signIn();
+    my $result = $api_instance->signIn(username => $username, password => $password);
     print Dumper($result);
 };
 if ($@) {
@@ -2859,10 +2874,12 @@ from pprint import pprint
 
 # create an instance of the API class
 api_instance = swagger_client.UserApi()
+username = username_example # String | username
+password = password_example # String | user password
 
 try: 
     # sign in
-    api_response = api_instance.sign_in()
+    api_response = api_instance.sign_in(username, password)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling UserApi->signIn: %s\n" % e)</code></pre>
@@ -2875,6 +2892,59 @@ except ApiException as e:
 
 
 
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">username*</td>
+<td>
+
+
+    <div id="d2e199_signIn_username">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        username
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                                <tr><td style="width:150px;">password*</td>
+<td>
+
+
+    <div id="d2e199_signIn_password">
+        <div class="json-schema-view">
+            <div class="primitive">
+                <span class="type">
+                    String
+                </span>
+
+                    <div class="inner description">
+                        user password
+                    </div>
+            </div>
+                <div class="inner required">
+                    Required
+                </div>
+        </div>
+    </div>
+</td>
+</tr>
+
+                            </table>
 
                           <h2>Responses</h2>
                             <h3> Status: 200 - Successful Operation </h3>
