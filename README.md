@@ -8,3 +8,5 @@ xutaiqi  许泰琪(17343133)：  [项目小结](https://blog.csdn.net/xutaiqi/ar
 
 DanielXuuuuu 徐肯(17343130)：[简单 web 服务与客户端开发实战—前端总结](https://github.com/DanielXuuuuu/ServiceComputingOnCloud/tree/master/simpleBlog)
 
+xxxufj  许帆君(17343132) : [项目小结](https://blog.csdn.net/abc15837998448/article/details/103466111)
+
